@@ -1,0 +1,37 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "webpack模板",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server  --hot --inline",
+    "build": "webpack --progress --profile --colors --config webpack.production.config.js"
+  },
+  "author": "liaobin",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.26.0",
+    "imports-loader": "^0.7.0",
+    "jquery": "^3.1.1",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-zepto": "0.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xyzpjys/webpack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xyzpjys/webpack/issues"
+  },
+  "homepage": "https://github.com/xyzpjys/webpack#readme"
+}
