@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xyzpjys/webpack.git"
+    "url": "git+https://github.com/nrsjzzy/webpack.git"
   },
   "bugs": {
-    "url": "https://github.com/xyzpjys/webpack/issues"
+    "url": "https://github.com/nrsjzzy/webpack/issues"
   },
-  "homepage": "https://github.com/xyzpjys/webpack#readme"
+  "homepage": "https://github.com/nrsjzzy/webpack#readme"
 }
