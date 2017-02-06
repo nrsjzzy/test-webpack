@@ -6,19 +6,19 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var webpack = require('webpack');
-var TEM_PATH = path.resolve(APP_PATH, 'templates');
+//var TEM_PATH = path.resolve(APP_PATH, 'templates');
 
 module.exports = {
 	//项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
 	entry: {
-		app: APP_PATH + '/index.js',
-		mobile: APP_PATH + '/mobile.js',
-		//vendors: ['webpack-zepto']
+		index: APP_PATH + '/js/index.js'
+			//mobile: APP_PATH + '/mobile.js',
+			//vendors: ['webpack-zepto']
 	},
 	//输出的文件名 合并以后的js会命名为bundle.js
 	output: {
 		path: BUILD_PATH,
-		filename: '[name].js'
+		filename: 'js/[name].js'
 	},
 	devServer: {
 		historyApiFallback: true,
@@ -32,13 +32,15 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.scss$/,
-			loader: ExtractTextPlugin.extract("style", "css!sass"),
+			loader: ExtractTextPlugin.extract("style", "css!sass", {
+				publicPath: '../'
+			}),
 			//loaders: ['style', 'css'],
-			include: APP_PATH, //字符串或者数组，指包含的文件夹
+			include:APP_PATH, //字符串或者数组，指包含的文件夹
 			exclude: '' //字符串或数组，指排除的文件夹
 		}, {
 			test: /\.(png|jpg)$/,
-			loader: 'url?limit=4000'
+			loader: 'url-loader?limit=4000&name=img/[name].[ext]'
 		}, {
 			test: /\.jsx?$/,
 			loader: 'babel',
@@ -51,17 +53,7 @@ module.exports = {
 
 	},
 	plugins: [
-		/*new HtmlwebpackPlugin({
-			title: '拆红包',
-			template: path.resolve(APP_PATH, 'router.html'),
-			filename: 'router.html',
-			//chunks这个参数告诉插件要引用entry里面的哪几个入口
-			//chunks: ['cj'],
-			//要把script插入到标签里
-			inject: 'body'
-
-		}),*/
-		new ExtractTextPlugin("[name].css"),
+		new ExtractTextPlugin("css/[name].css"),
 		/*new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false
@@ -75,20 +67,10 @@ module.exports = {
 		}),*/
 		new HtmlwebpackPlugin({
 			title: 'index',
-			template: TEM_PATH + '/index.html',
+			template: /*'html-withimg-loader!'+用于页面里面引用图片处理路径*/APP_PATH + '/index.html',
 			filename: 'index.html',
 			//chunks这个参数告诉插件要引用entry里面的哪几个入口
-			chunks: ['app'],
-			//要把script插入到标签里
-			inject: 'body'
-
-		}),
-		new HtmlwebpackPlugin({
-			title: 'mobile',
-			template: TEM_PATH + '/mobile.html',
-			filename: 'mobile.html',
-			//chunks这个参数告诉插件要引用entry里面的哪几个入口
-			chunks: ['mobile'],
+			chunks: ['index'],
 			//要把script插入到标签里
 			inject: 'body'
 

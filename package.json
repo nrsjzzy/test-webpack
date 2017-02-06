@@ -2,9 +2,9 @@
   "name": "app",
   "version": "1.0.0",
   "description": "webpack模板",
-  "main": "index.js",
+  "main": "js/index.js",
   "scripts": {
-    "start": "webpack-dev-server  --hot --inline",
+    "start": "webpack-dev-server  --hot --inline --content-base build",
     "build": "webpack --progress --profile --colors --config webpack.production.config.js"
   },
   "author": "liaobin",
@@ -17,6 +17,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.26.0",
+    "html-withimg-loader": "^0.1.16",
     "imports-loader": "^0.7.0",
     "jquery": "^3.1.1",
     "sass-loader": "^4.1.1",
