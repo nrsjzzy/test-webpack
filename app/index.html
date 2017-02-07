@@ -8,15 +8,23 @@
 		<meta content="black" name="apple-mobile-web-app-status-bar-style">
 		<meta content="telephone=no" name="format-detection">
 		<meta content="email=no" name="format-detection">
-		<!--<script src="js/calRem.js" type="text/javascript" charset="utf-8"></script>
-		--><title>
+		<script src="js/zepto-ym.js" type="text/javascript" charset="utf-8"></script>
+		<title>
 			<%= htmlWebpackPlugin.options.title %>
 		</title>
 		<script src="https://cdn.bootcss.com/vue/1.0.26/vue.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body id="app">
-       
+       <div id="lb">
+       	     <div class="name">sfjls</div>
+       </div>
 	</body>
+	<script type="text/javascript">
+		
+		$('#lb').html("he").version();
+		
+		
+	</script>
 
 </html>
